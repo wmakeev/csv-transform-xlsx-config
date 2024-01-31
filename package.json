@@ -1,0 +1,76 @@
+{
+  "name": "@wmakeev/csv-transform-xlsx-config",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Create csv-transform config from xlsx file",
+  "keywords": [
+    "csv",
+    "convert",
+    "transform"
+  ],
+  "exports": "./build/src/index.js",
+  "main": "build/src/index.js",
+  "types": "build/src/index.d.ts",
+  "files": [
+    "build/src/"
+  ],
+  "scripts": {
+    "lint": "eslint . --fix",
+    "cleanup": "rm -rf build/",
+    "compile:dev": "tsc",
+    "compile": "tsc --build tsconfig.prod.json",
+    "build:dev": "npm run lint && npm run compile:dev",
+    "build": "npm run cleanup && npm run lint && npm run compile",
+    "test": "npm run build && node -r dotenv/config ./build/test/index.test.js",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "release": "np"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "quoteProps": "consistent",
+    "trailingComma": "none",
+    "arrowParens": "avoid"
+  },
+  "np": {
+    "yarn": false
+  },
+  "author": "Vitaliy V. Makeev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmakeev/csv-transform-xlsx-config"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@tsconfig/strictest": "^2.0.2",
+    "@types/highland": "^2.12.20",
+    "@types/node": "^18.19.8",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "@typescript-eslint/typescript-estree": "^6.19.0",
+    "auto-changelog": "^2.4.0",
+    "csv-stringify": "^6.4.5",
+    "dotenv": "^16.3.2",
+    "envalid": "^8.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "highland": "^2.13.5",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3",
+    "typescript-eslint-language-service": "^5.0.5"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.3",
+    "exceljs": "^4.4.0",
+    "undici": "^6.4.0"
+  },
+  "peerDependencies": {
+    "@wmakeev/csv-transform": "^0.1.1"
+  }
+}
